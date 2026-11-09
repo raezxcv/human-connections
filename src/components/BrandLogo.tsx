@@ -84,3 +84,4 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'header' }) => {
     </div>
   );
 };
+

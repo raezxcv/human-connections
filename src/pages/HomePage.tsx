@@ -47,42 +47,44 @@ export const HomePage: React.FC = () => {
     <div className="space-y-24 md:space-y-32 pb-12">
       {/* 1. CENTRAL STATEMENT & INTERACTIVE PORTRAIT MOSAIC */}
       <section className="pt-8 sm:pt-12 lg:pt-16 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 lg:items-stretch">
           {/* Left 6 Columns: Central Statement & Editorial Lead */}
-          <div className="lg:col-span-6 space-y-7">
-            <div className="inline-flex items-center gap-3 px-3.5 py-1.5 bg-ochre text-charcoal text-xs sm:text-sm font-bold">
-              <span>Issue No. 15 · Documentary & Literary Platform</span>
-            </div>
+          <div className="lg:col-span-6 flex flex-col justify-between gap-7">
+            <div className="space-y-7">
+              <div className="inline-flex items-center gap-3 px-3.5 py-1.5 bg-ochre text-charcoal text-xs sm:text-sm font-bold">
+                <span>Issue No. 15 · Documentary & Literary Platform</span>
+              </div>
 
-            <h1 className="font-display font-extrabold text-4xl sm:text-5xl xl:text-[3.65rem] leading-[1.02] tracking-tight text-charcoal">
-              Even in a World That Keeps Moving, We’re Still Looking for Each Other.
-            </h1>
+              <h1 className="font-display font-extrabold text-4xl sm:text-5xl xl:text-[3.65rem] leading-[1.02] tracking-tight text-charcoal">
+                Even in a World That Keeps Moving, We’re Still Looking for Each Other.
+              </h1>
 
-            <p className="font-serif text-xl sm:text-2xl leading-relaxed text-charcoal-slate max-w-xl">
-              Most of what holds a neighborhood together never makes the evening news: an umbrella tilted six inches at a red light, two extra chairs wedged behind a refrigerator, a wrench chained to a front stoop for whoever has a slipped chain.
-            </p>
+              <p className="font-serif text-xl sm:text-2xl leading-relaxed text-charcoal-slate max-w-xl">
+                Most of what holds a neighborhood together never makes the evening news: an umbrella tilted six inches at a red light, two extra chairs wedged behind a refrigerator, a wrench chained to a front stoop for whoever has a slipped chain.
+              </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <Link
-                to="/stories"
-                className="btn-tactile inline-flex items-center gap-3 px-6 py-4 bg-coral text-charcoal font-display font-bold text-base border border-charcoal hover:bg-ochre"
-              >
-                <span>Read All 13 Dispatches</span>
-                <ArrowRight className="w-5 h-5" aria-hidden="true" />
-              </Link>
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  to="/stories"
+                  className="btn-tactile inline-flex items-center gap-3 px-6 py-4 bg-coral text-charcoal font-display font-bold text-base border border-charcoal hover:bg-ochre"
+                >
+                  <span>Read All 13 Dispatches</span>
+                  <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                </Link>
 
-              <Link
-                to={`/stories/${featuredStory.slug}`}
-                className="btn-tactile inline-flex items-center gap-2 px-6 py-4 bg-cream-sand text-charcoal font-display font-bold text-base border border-charcoal hover:bg-cobalt hover:text-cream"
-              >
-                <span>Featured Essay: The 11:14 Upright</span>
-                <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
-              </Link>
+                <Link
+                  to={`/stories/${featuredStory.slug}`}
+                  className="btn-tactile inline-flex items-center gap-2 px-6 py-4 bg-cream-sand text-charcoal font-display font-bold text-base border border-charcoal hover:bg-cobalt hover:text-cream"
+                >
+                  <span>Featured Essay: The 11:14 Upright</span>
+                  <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
+                </Link>
+              </div>
             </div>
 
             {/* Active Mosaic Field-Note Inspector Card */}
             <div
-              className="mt-6 p-6 bg-cream-sand border-2 border-charcoal space-y-3"
+              className="p-6 bg-cream-sand border-2 border-charcoal space-y-3"
               aria-live="polite"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-charcoal-slate">
@@ -115,27 +117,27 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Right 6 Columns: Asymmetric 3-Photo Documentary Portrait Mosaic */}
-          <div className="lg:col-span-6">
-            <div className="grid grid-cols-12 gap-4 sm:gap-5">
+          <div className="lg:col-span-6 flex flex-col">
+            <div className="grid grid-cols-12 gap-4 sm:gap-5 flex-1 items-stretch">
               {/* Primary Vertical Portrait (7 cols) */}
               <div className="col-span-12 sm:col-span-7 flex flex-col">
                 <button
                   type="button"
                   onClick={() => setActiveMosaicIndex(0)}
-                  className={`group text-left w-full focus:outline-none border-2 transition-colors ${
+                  className={`group text-left w-full h-full flex-1 flex flex-col focus:outline-none border-2 transition-colors ${
                     activeMosaicIndex === 0
                       ? 'border-coral bg-charcoal text-cream'
                       : 'border-charcoal bg-cream-sand text-charcoal hover:border-cobalt'
                   }`}
                 >
-                  <div className="photo-frame photo-grain aspect-[4/5] w-full">
+                  <div className="photo-frame photo-grain aspect-[4/5] sm:aspect-auto sm:flex-1 relative min-h-[280px] w-full">
                     <img
                       src={mosaicStories[0].leadPhoto.src}
                       alt={mosaicStories[0].leadPhoto.alt}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover sm:absolute sm:inset-0"
                     />
                   </div>
-                  <div className="p-4 space-y-1.5">
+                  <div className="p-4 space-y-1.5 shrink-0">
                     <div className="flex items-center justify-between gap-2">
                       <CategoryBadge category={mosaicStories[0].category} />
                       <span className="text-xs opacity-80">
@@ -162,20 +164,20 @@ export const HomePage: React.FC = () => {
                       key={story.id}
                       type="button"
                       onClick={() => setActiveMosaicIndex(realIdx)}
-                      className={`group text-left w-full focus:outline-none border-2 transition-colors ${
+                      className={`group text-left w-full flex-1 flex flex-col focus:outline-none border-2 transition-colors ${
                         isSelected
                           ? 'border-coral bg-charcoal text-cream'
                           : 'border-charcoal bg-cream-sand text-charcoal hover:border-cobalt'
                       }`}
                     >
-                      <div className="photo-frame photo-grain aspect-[16/11] w-full">
+                      <div className="photo-frame photo-grain aspect-[16/11] lg:aspect-auto flex-1 relative min-h-[165px] w-full">
                         <img
                           src={story.leadPhoto.src}
                           alt={story.leadPhoto.alt}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover lg:absolute lg:inset-0"
                         />
                       </div>
-                      <div className="p-3.5 space-y-1">
+                      <div className="p-3.5 space-y-1 shrink-0">
                         <div className="flex items-center justify-between gap-2">
                           <CategoryBadge category={story.category} />
                           <span className="text-[11px] opacity-80">
@@ -471,18 +473,18 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* Row 1: Asymmetric 7 / 5 Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           {/* Story A (7 cols) */}
-          <article className="lg:col-span-7 bg-cream-sand border border-rule flex flex-col justify-between">
-            <Link to={`/stories/${selectedStories[0].slug}`} className="group block">
-              <div className="photo-frame photo-grain aspect-[16/10] w-full border-b border-rule">
+          <article className="lg:col-span-7 bg-cream-sand border border-rule flex flex-col">
+            <Link to={`/stories/${selectedStories[0].slug}`} className="group flex flex-col flex-1 h-full">
+              <div className="photo-frame photo-grain aspect-[16/10] lg:aspect-auto lg:flex-1 relative min-h-[260px] w-full border-b border-rule">
                 <img
                   src={selectedStories[0].leadPhoto.src}
                   alt={selectedStories[0].leadPhoto.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover lg:absolute lg:inset-0"
                 />
               </div>
-              <div className="p-6 sm:p-8 space-y-3">
+              <div className="p-6 sm:p-8 space-y-3 shrink-0">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <CategoryBadge category={selectedStories[0].category} />
@@ -511,16 +513,16 @@ export const HomePage: React.FC = () => {
           </article>
 
           {/* Story B (5 cols) */}
-          <article className="lg:col-span-5 bg-cream-sand border border-rule flex flex-col justify-between">
-            <Link to={`/stories/${selectedStories[1].slug}`} className="group block">
-              <div className="photo-frame photo-grain aspect-[4/5] w-full border-b border-rule">
+          <article className="lg:col-span-5 bg-cream-sand border border-rule flex flex-col">
+            <Link to={`/stories/${selectedStories[1].slug}`} className="group flex flex-col flex-1 h-full">
+              <div className="photo-frame photo-grain aspect-[4/5] lg:aspect-auto lg:flex-1 relative min-h-[280px] w-full border-b border-rule">
                 <img
                   src={selectedStories[1].leadPhoto.src}
                   alt={selectedStories[1].leadPhoto.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover lg:absolute lg:inset-0"
                 />
               </div>
-              <div className="p-6 space-y-3">
+              <div className="p-6 space-y-3 shrink-0">
                 <div className="flex items-center justify-between gap-2">
                   <CategoryBadge category={selectedStories[1].category} />
                   <span className="text-xs text-charcoal-slate">
