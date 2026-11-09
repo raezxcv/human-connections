@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Outer Charcoal Editorial Stamp -->
+  <rect width="64" height="64" fill="#181715" />
+  <!-- Inner Warm Cream Paper Field -->
+  <rect x="4" y="4" width="56" height="56" fill="#F7F3EB" />
+  <!-- Left Coral Geometric C-Aperture (Person / Path A) -->
+  <path d="M10 10H32V24H22V40H32V54H10V10Z" fill="#E04F3E" />
+  <!-- Right Cobalt Blue Geometric H-Aperture (Person / Path B) -->
+  <path d="M32 10H42V26H44V10H54V54H44V38H42V54H32V38H26V26H32V10Z" fill="#1B45B8" />
+  <!-- Shared Proximity Nexus in Warm Ochre -->
+  <rect x="24" y="24" width="16" height="16" fill="#F2B735" stroke="#181715" stroke-width="2.5" />
+  <!-- Center Alignment Dot -->
+  <rect x="30" y="30" width="4" height="4" fill="#181715" />
+</svg>

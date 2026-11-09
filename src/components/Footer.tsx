@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,10 +9,8 @@ export const Footer: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-16 pb-12">
         {/* Top Editorial Colophon Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-cream/15">
-          <div className="md:col-span-5 space-y-4">
-            <p className="font-serif italic text-ochre text-lg">
-              Issue No. 15 — The Proximity Issue
-            </p>
+          <div className="md:col-span-5 space-y-5">
+            <BrandLogo variant="footer" />
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-cream leading-tight">
               Even in a World That Keeps Moving, We’re Still Looking for Each Other.
             </h2>

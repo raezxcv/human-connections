@@ -4,6 +4,7 @@ import { Bookmark, Menu, X, ArrowUpRight, Trash2 } from 'lucide-react';
 import { useFieldPocket } from '../context/FieldPocketContext';
 import { STORIES } from '../data/stories';
 import { COMMUNITY_INITIATIVES } from '../data/community';
+import { BrandLogo } from './BrandLogo';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -71,18 +72,13 @@ export const Navbar: React.FC = () => {
       {/* Main Editorial Masthead */}
       <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur-sm border-b border-rule">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 h-20 flex items-center justify-between gap-4">
-          {/* Wordmark */}
+          {/* Brand Logo Lockup */}
           <Link
             to="/"
-            className="group flex flex-col focus:outline-none"
+            className="group flex items-center focus:outline-none"
             aria-label="COMMON HOURS — Return to Home Page"
           >
-            <span className="font-display font-extrabold text-2xl sm:text-[1.7rem] leading-none tracking-tight text-charcoal group-hover:text-coral transition-colors">
-              COMMON HOURS
-            </span>
-            <span className="font-serif italic text-xs sm:text-sm text-charcoal-slate mt-0.5">
-              A Journal of Everyday Human Connection
-            </span>
+            <BrandLogo variant="header" />
           </Link>
 
           {/* Desktop Navigation (All 5 Pages) */}
