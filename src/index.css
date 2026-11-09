@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-cream: #F7F3EB;
+  --bg-sand: #EDE6D8;
+  --bg-deep: #E2D9C6;
+  --ink-charcoal: #181715;
+  --ink-slate: #4A4640;
+  --accent-coral: #E04F3E;
+  --accent-coral-dark: #B83222;
+  --accent-cobalt: #1B45B8;
+  --accent-ochre: #F2B735;
+  --rule-stone: #D5CCB9;
+  --ease-out-expo: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-editorial: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  html {
+    background-color: var(--bg-cream);
+    color: var(--ink-charcoal);
+    font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+    caret-color: var(--accent-coral);
+  }
+
+  ::selection {
+    background-color: var(--accent-ochre);
+    color: var(--ink-charcoal);
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2.5px solid var(--accent-cobalt);
+    outline-offset: 3px;
+  }
+
+  /* Custom editorial scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-cream);
+    border-left: 1px solid var(--rule-stone);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #B8B0A0;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--ink-charcoal);
+  }
+}
+
+/* Tactile button response per Emil Kowalski design engineering principles */
+.btn-tactile {
+  transition:
+    transform 160ms var(--ease-out-expo),
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.btn-tactile:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Documentary photo frame and hover treatment gated for pointer devices */
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-sand);
+}
+
+.photo-frame img {
+  transition:
+    transform 650ms var(--ease-out-expo),
+    filter 450ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .photo-frame img,
+  .photo-frame:hover img {
+    transform: scale(1.028);
+  }
+}
+
+/* Subtle analog documentary warmth & contact sheet grain */
+.photo-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(24, 23, 21, 0.06) 1px, transparent 0);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+}
+
+/* Literary drop-cap for long-form Story Detail essay */
+.editorial-dropcap::first-letter {
+  float: left;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 4.1rem;
+  line-height: 0.84;
+  padding-right: 0.75rem;
+  padding-top: 0.2rem;
+  color: var(--accent-coral);
+}
+
+/* Staggered entrance utility */
+@keyframes editorialRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-editorial-rise {
+  animation: editorialRise 420ms var(--ease-out-expo) both;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  background: var(--ink-charcoal);
+  color: var(--bg-cream);
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  transition: top 160ms var(--ease-out-expo);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Reduced motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .photo-frame img {
+    transform: none !important;
+  }
+}
